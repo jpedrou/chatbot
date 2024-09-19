@@ -1,8 +1,8 @@
 # ChatBot
 
-The objective of this project is to build a chatbot that interacts with the user using HuggingFace's models API and Next.js for interface design.
+The objective of this project is to build a chatbot that interacts with the user using HuggingFace models API and Next.js for interface design.
 
-## Tools and Tecnologies used in this project
+## Tools and tecnologies used in this project
 
 - Next.js
 - Python

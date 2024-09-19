@@ -13,6 +13,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Post } from "@/http/http";
 import { useState } from "react";
+import Image from "next/image";
+import Send from "@/assets/paper-plane-regular.svg";
 
 interface Message {
   sender: "user" | "ai";
@@ -90,7 +92,7 @@ export default function Home() {
                 onChange={(e) => setInputValue(e.target.value)}
               />
               <Button disabled={status} type="submit">
-                Send
+                <Image src={Send} alt="Send" width={20} className="font-white"/>
               </Button>
             </form>
           </CardFooter>

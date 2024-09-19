@@ -30,8 +30,8 @@ def make_prediction(request: Request):
     input_ids = tokenizer(input_text, return_tensors = "pt").input_ids
 
     outputs = model.generate(input_ids, 
-                             max_length = 100, 
-                             temperature = 0.7, 
+                             max_length = 250, 
+                             temperature = 0.4, 
                              top_k = 50, 
                              top_p = 0.9)
     result = tokenizer.decode(outputs[0])

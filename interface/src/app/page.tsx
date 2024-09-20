@@ -58,12 +58,12 @@ export default function Home() {
   return (
     <main>
       <div className="flex min-h-screen bg-gray-950 items-center justify-center">
-        <Card className="w-[500px] h-[800px] grid grid-rows-[min-content_1fr_min-content]">
+        <Card className="w-[500px] h-[800px] bg-gray-900 grid grid-rows-[min-content_1fr_min-content]">
           <CardHeader>
-            <CardTitle className="flex justify-center items-center">
+            <CardTitle className="flex justify-center items-center text-slate-200">
               AI Chatbot
             </CardTitle>
-            <CardDescription className="flex justify-center items-center">
+            <CardDescription className="flex justify-center items-center text-slate-200">
               Using Next.js | shadcn.ui | HuggingFace models
             </CardDescription>
           </CardHeader>
@@ -78,11 +78,13 @@ export default function Home() {
                     src={
                       message.sender === "user"
                         ? "https://cdn-icons-png.flaticon.com/512/706/706807.png"
-                        : "https://cdn.pixabay.com/photo/2017/03/31/23/11/robot-2192617_960_720.png"
+                        : "https://media.istockphoto.com/id/1492548051/vector/chatbot-logo-icon.jpg?s=612x612&w=0&k=20&c=oh9mrvB70HTRt0FkZqOu9uIiiJFH9FaQWW3p4M6iNno="
                     }
                   />
                 </Avatar>
-                <p className="mt-2 leading-relaxed">{message.content}</p>
+                <p className="mt-2 leading-relaxed text-slate-300">
+                  {message.content}
+                </p>
               </div>
             ))}
           </CardContent>
@@ -97,7 +99,11 @@ export default function Home() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
               />
-              <Button disabled={status} type="submit">
+              <Button
+                className="bg-black hover:bg-gray-950"
+                disabled={status}
+                type="submit"
+              >
                 <Image
                   src={Send}
                   alt="Send"

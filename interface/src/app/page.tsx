@@ -15,6 +15,14 @@ import { Post } from "@/http/http";
 import { useState } from "react";
 import Image from "next/image";
 import Send from "@/assets/paper-plane-regular.svg";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 interface Message {
   sender: "user" | "ai";
@@ -25,11 +33,12 @@ export default function Home() {
   const [inputValue, setInputValue] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
   let [status, setStatus] = useState<boolean>(false);
+  let [dialogStatus, setdialogStatus] = useState<boolean>(false);
 
   async function handleSubmit(event: React.FormEvent, input_value: string) {
     event.preventDefault();
     if (input_value == "" || input_value == null) {
-      alert("Please, enter a valid message!");
+      setdialogStatus(true);
       return;
     }
     setMessages((prevMessages) => [
@@ -39,9 +48,7 @@ export default function Home() {
 
     setInputValue("");
     setStatus(true);
-    console.log("Antes de entrar na request", status);
     const response = await Post("predict", input_value);
-    console.log("Depois de entrar na request", status);
     setStatus(false);
     setMessages((prevMessages) => [
       ...prevMessages,
@@ -92,10 +99,24 @@ export default function Home() {
                 onChange={(e) => setInputValue(e.target.value)}
               />
               <Button disabled={status} type="submit">
-                <Image src={Send} alt="Send" width={20} className="font-white"/>
+                <Image
+                  src={Send}
+                  alt="Send"
+                  width={20}
+                  className="font-white"
+                />
               </Button>
             </form>
           </CardFooter>
+          <Dialog open={dialogStatus} onOpenChange={setdialogStatus}>
+            <DialogContent>
+              <DialogHeader>
+              <DialogTitle>INVALID TEXT</DialogTitle>
+                <DialogDescription>Please, enter a valid message!</DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+            
+          </Dialog>
         </Card>
       </div>
     </main>

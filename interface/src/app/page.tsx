@@ -21,7 +21,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
 interface Message {
@@ -111,11 +110,12 @@ export default function Home() {
           <Dialog open={dialogStatus} onOpenChange={setdialogStatus}>
             <DialogContent>
               <DialogHeader>
-              <DialogTitle>INVALID TEXT</DialogTitle>
-                <DialogDescription>Please, enter a valid message!</DialogDescription>
+                <DialogTitle>INVALID TEXT</DialogTitle>
+                <DialogDescription>
+                  Please, enter a valid message!
+                </DialogDescription>
               </DialogHeader>
             </DialogContent>
-            
           </Dialog>
         </Card>
       </div>

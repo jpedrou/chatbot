@@ -36,4 +36,4 @@ def make_prediction(request: Request):
                              top_p = 0.9)
     result = tokenizer.decode(outputs[0])
     result = result.replace("<pad>", "").replace("</s>", "").strip()
-    return {"success": True, "prediction": result, "request": input_text}
+    return {"success": True, "prediction": result}

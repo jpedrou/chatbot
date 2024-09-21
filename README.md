@@ -63,7 +63,7 @@ To activate the env, run:
 .\venv\Scripts\activate.ps1
 ```
 
-To install all python dependencies of this project, in the `server directory and with the virtual env already configured, run in the terminal:
+To install all python dependencies of this project, in the `server` directory and with the virtual env already configured, run in the terminal:
 
 ```bash
 pip install -r requirements.txt
